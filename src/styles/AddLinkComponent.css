@@ -1,0 +1,49 @@
+/* AddLinkComponent.css */
+
+.add-link-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-link-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-link-container label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.add-link-container input[type="text"],
+.add-link-container select {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.add-link-container button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-link-container button:hover {
+    background-color: #0056b3;
+}
+
+.add-link-container div {
+    margin-bottom: 16px;
+}

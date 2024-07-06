@@ -1,0 +1,119 @@
+/* EditLinkComponent.css */
+
+
+#label{
+    color: white;
+    
+}
+
+.linkss{
+      background-color: #0e1c76;
+      
+}
+
+#link{
+    color: white;
+    border: 2px solid white;
+    transform: translateX(1%);
+}
+
+.edit-link-container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #0e1c76;
+    transition: transform 0.2s;
+}
+
+.icon-preview {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.icon-preview img {
+    max-width: 80px; /* Adjust as needed */
+    height: auto;
+}
+
+.edit-link-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form > div {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 3px;
+    font-size: 1rem;
+    border: none;
+    background-color:white ;
+    color:black;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    color: white;
+    background-color: #0e1c76;
+    border: 2px solid white;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+.icon-preview:hover{
+    
+        transform: scale(1.1);
+     
+}
+
+
+
+
+@media (max-width: 768px) {
+    .edit-link-container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .icon-preview img {
+        max-width: 60px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+}
