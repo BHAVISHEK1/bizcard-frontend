@@ -33,7 +33,7 @@ const App = () => {
     useEffect(() => {
         const fetchLinks = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/links');
+                const response = await axios.get('https://bixcard-backend.onrender.com/links');
                 const data = response.data.social_media_links;
                 const linksArray = Object.keys(data).map(platform => ({
                     platform,
@@ -50,7 +50,7 @@ const App = () => {
 
     const addLink = async (newLink) => {
         try {
-            await axios.post('http://localhost:5000/links', newLink);
+            await axios.post('https://bixcard-backend.onrender.com/links', newLink);
             setLinks([...links, newLink]);
         } catch (error) {
             console.error("Error adding link: ", error);

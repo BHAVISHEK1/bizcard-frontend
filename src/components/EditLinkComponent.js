@@ -12,7 +12,7 @@ const EditLinkComponent = ({ platformOptions }) => {
     useEffect(() => {
         const fetchLink = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/links/${platform}`);
+                const response = await axios.get(`https://bixcard-backend.onrender.com/links/${platform}`);
                 setLink(response.data.link);
             } catch (error) {
                 console.error('Error fetching link:', error.message);
@@ -25,7 +25,7 @@ const EditLinkComponent = ({ platformOptions }) => {
     const handleUpdate = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`http://localhost:5000/update-link`, {
+            await axios.post(`https://bixcard-backend.onrender.com/update-link`, {
                 platform,
                 link: link.trim()
             });
@@ -37,7 +37,7 @@ const EditLinkComponent = ({ platformOptions }) => {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:5000/delete-link/${platform}`);
+            await axios.delete(`https://bixcard-backend.onrender.com/delete-link/${platform}`);
             navigate('/');
         } catch (error) {
             console.error('Error deleting link:', error.message);
