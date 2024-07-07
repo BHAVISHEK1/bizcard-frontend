@@ -64,9 +64,6 @@ const App = () => {
     return (
         <Router>
             <div className="App">
-                {/* <header className="App-header">
-                    <h1>My Social Links</h1>
-                </header> */}
                 <main>
                     <Routes>
                         <Route
