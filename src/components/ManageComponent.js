@@ -11,24 +11,23 @@ const ManageComponent = ({ links, platformOptions }) => {
     };
 
     return (
-        <div className="home">
-            <div className="links-list">
-                {links.map((link, index) => (
-                    <div key={index} className="link-item" onClick={() => handleEdit(link.platform)}>
-                        <img
-                            src={platformOptions.find(option => option.name.toLowerCase() === link.platform.toLowerCase()).icon}
-                            alt={link.platform}
-                        />
-                    </div>
-                ))}
-                {/* <div className="link-item">
-                    <Link to="/add-link">
-                        <img src={require('../assets/more.png').default} alt="Add Link" />
-                    </Link>
-                </div> */}
+        <>
+            <div className="home">
+                <div className="links-list">
+                    {links.map((link, index) => (
+                        <div key={index} className="link-item" onClick={() => handleEdit(link.platform)}>
+                            <img
+                                src={platformOptions.find(option => option.name.toLowerCase() === link.platform.toLowerCase()).icon}
+                                alt={link.platform}
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
-            <Link to="/" className="manage-button"> <i class="fa-solid fa-left-long"></i> Back to Home</Link>
-        </div>
+            <div className="manage-button-container">
+                <Link to="/" className="manage-button"><i className="fa-solid fa-left-long"></i> Back to Home</Link>
+            </div>
+        </>
     );
 };
 

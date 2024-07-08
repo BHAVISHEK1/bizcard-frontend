@@ -91,26 +91,30 @@ const App = () => {
 
 const Home = ({ links, platformOptions }) => {
     return (
-      <div className="home">
-      <div className="links-list">
-          {links.map((link, index) => (
-              <div key={index} className="link-item">
-                  <a href={link.link} target="_blank" rel="noopener noreferrer">
-                      <img
-                          src={platformOptions.find(option => option.name.toLowerCase() === link.platform.toLowerCase())?.icon}
-                          alt={link.platform}
-                      />
-                  </a>
-              </div>
-          ))}
-          <div className="link-item">
-              <Link to="/add-link">
-                  <img src={moreIcon} alt="Add Link" />
-              </Link>
-          </div>
-      </div>
-      <Link to="/manage" className="manage-button">Manage</Link>
-  </div>
+        <>
+            <div className="home">
+                <div className="links-list">
+                    {links.map((link, index) => (
+                        <div key={index} className="link-item">
+                            <a href={link.link} target="_blank" rel="noopener noreferrer">
+                                <img
+                                    src={platformOptions.find(option => option.name.toLowerCase() === link.platform.toLowerCase())?.icon}
+                                    alt={link.platform}
+                                />
+                            </a>
+                        </div>
+                    ))}
+                    <div className="link-item">
+                        <Link to="/add-link">
+                            <img src={moreIcon} alt="Add Link" />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+            <div className="manage-button-container">
+                <Link to="/manage" className="manage-button">Manage</Link>
+            </div>
+        </>
     );
 };
 

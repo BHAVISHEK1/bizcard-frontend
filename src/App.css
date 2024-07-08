@@ -1,83 +1,59 @@
-body{
-  background-image: ;
+/* App.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000000;
 }
 
 
-.home {
-    padding: 20px;
-    
-  }
-  
-  .links-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 10px;
-    
-  }
-  
-  .link-item {
-    text-align: center;
-  }
-  
-  .link-item img {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .plus-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    color: #000;
-    cursor: pointer;
-  }
-  
- 
-  /* General Styles */
+
 .App {
-  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #f0f0f0;
   padding: 20px;
+  
 }
 
-.App-header {
-  margin-bottom: 20px;
+main {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Home Component Styles */
 .home {
-  background-color: white;
-  border-radius: 20px;
+  width: 100%;
+  max-width: 300px;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 360px; /* typical mobile width */
-  max-width: 100%;
-  margin-bottom: 20px; /* Add margin to separate from the Manage button */
+  overflow-y: auto;
 }
 
 .links-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
 }
 
 .link-item {
-  width: 80px; /* icon size */
-  height: 80px;
+  width: 55px;
+  height: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
   background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
 
@@ -86,60 +62,54 @@ body{
 }
 
 .link-item img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
-button, .manage-button {
+.manage-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  background-color: #007bff;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none;
-  display: inline-block;
 }
 
-button:hover, .manage-button:hover {
+.manage-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s;
+}
+
+.manage-button:hover {
   background-color: #0056b3;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 400px) {
   .home {
-      width: 90%;  
-      padding: 15px;
+    height: 40vh;
+  }
+
+  .links-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
 
   .link-item {
-      width: 70px;
-      height: 70px;
+    width: 50px;
+    height: 50px;
   }
 
   .link-item img {
-      width: 40px;
-      height: 40px;
+    width: 30px;
+    height: 30px;
   }
 
-  button, .manage-button {
-      width: 100%;
-      font-size: 14px;
-      padding: 8px 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .link-item {
-      width: 60px;
-      height: 60px;
-  }
-
-  .link-item img {
-      width: 30px;
-      height: 30px;
+  .manage-button {
+    width: 50%;
+    text-align: center;
   }
 }

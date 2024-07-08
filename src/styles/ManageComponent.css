@@ -1,25 +1,157 @@
-.manage-container {
+/* ManageComponent.css */
+
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 15px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #347cf0;
+    border-radius: 1px solid rgb(198, 8, 8);
+    
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #fcfcfc;
+   
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+   
+  }
+  
+
+
+
+
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    
+  }
+  
+  .App {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
     padding: 20px;
-}
-
-.close-button {
+  }
+  
+  main {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .home {
+    width: 100%;
+    max-width: 300px;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+  }
+  
+  .links-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .link-item {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .link-item:hover {
+    transform: scale(1.1);
+  }
+  
+  .link-item img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .manage-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
+  }
+  
+  .manage-button {
     padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
     background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.close-button:hover {
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s;
+  }
+  
+  .manage-button:hover {
     background-color: #0056b3;
-}
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 300px) {
+    .home {
+      height: 40vh;
+    }
+  
+    .links-list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+  
+    .link-item {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .link-item img {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .manage-button {
+      width: 50%;
+      text-align: center;
+    }
+  }
+  
+
+  @media (max-width: 200px) {
+
+    .links-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    
+
+
+
+
+  }
