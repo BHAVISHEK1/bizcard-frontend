@@ -32,9 +32,13 @@ const App = () => {
     const [links, setLinks] = useState([]);
 
     useEffect(() => {
+        // Store the username in session storage
+        sessionStorage.setItem('username', 'smartcardai');
+
         const fetchLinks = async () => {
+            const username = sessionStorage.getItem('username');
             try {
-                const response = await axios.get('https://bixcard-backend.onrender.com/links');
+                const response = await axios.get(`https://bixcard-backend.onrender.com/links?user=${username}`);
                 const data = response.data.social_media_links;
                 const linksArray = Object.keys(data).map(platform => ({
                     platform,
@@ -51,8 +55,9 @@ const App = () => {
     }, []);
 
     const addLink = async (newLink) => {
+        const username = sessionStorage.getItem('username');
         try {
-            await axios.post('https://bixcard-backend.onrender.com/links', newLink);
+            await axios.post(`https://bixcard-backend.onrender.com/links?user=${username}`, newLink);
             setLinks([...links, newLink]);
             toast.success('Link added successfully');
         } catch (error) {
@@ -62,8 +67,9 @@ const App = () => {
     };
 
     const updateLink = async (updatedLink) => {
+        const username = sessionStorage.getItem('username');
         try {
-            await axios.put(`https://bixcard-backend.onrender.com/links/${updatedLink.platform}`, updatedLink);
+            await axios.put(`https://bixcard-backend.onrender.com/links/${updatedLink.platform}?user=${username}`, updatedLink);
             setLinks(links.map(link => (link.platform === updatedLink.platform ? updatedLink : link)));
             toast.success('Link updated successfully');
         } catch (error) {
@@ -75,7 +81,6 @@ const App = () => {
     return (
         <Router>
             <div className="App">
-
                 <main>
                     <Routes>
                         <Route
@@ -96,8 +101,6 @@ const App = () => {
                         />
                     </Routes>
                 </main>
-
-
                 <ToastContainer position="top-center"
                     autoClose={1000}
                     hideProgressBar={false}
