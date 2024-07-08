@@ -52,7 +52,6 @@ const EditLinkComponent = ({ platformOptions }) => {
             await axios.delete(`https://bixcard-backend.onrender.com/delete-link/${platform}`);
             toast.success('Link successfully deleted!');
             alert('Link successfully deleted!');
-
             navigate('/manage');
         } catch (error) {
             console.error('Error deleting link:', error.message);
@@ -61,7 +60,7 @@ const EditLinkComponent = ({ platformOptions }) => {
     };
 
     const isValidUrl = (url) => {
-        // Basic URL validation with regex
+        // URL validation
         return /^(ftp|http|https):\/\/[^ "]+$/.test(url);
     };
 

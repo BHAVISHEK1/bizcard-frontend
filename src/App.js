@@ -32,7 +32,7 @@ const App = () => {
     const [links, setLinks] = useState([]);
 
     useEffect(() => {
-        // Store the username in session storage
+        // session storage
         sessionStorage.setItem('username', 'smartcardai');
 
         const fetchLinks = async () => {
@@ -45,9 +45,16 @@ const App = () => {
                     link: data[platform]
                 }));
                 setLinks(linksArray);
+                //links in local storage
+                localStorage.setItem('links', JSON.stringify(linksArray));
             } catch (error) {
                 console.error("Error fetching links: ", error);
                 toast.error('Failed to fetch links');
+                // Fallback to local storage if API call fails
+                const localLinks = localStorage.getItem('links');
+                if (localLinks) {
+                    setLinks(JSON.parse(localLinks));
+                }
             }
         };
 
@@ -58,7 +65,10 @@ const App = () => {
         const username = sessionStorage.getItem('username');
         try {
             await axios.post(`https://bixcard-backend.onrender.com/links?user=${username}`, newLink);
-            setLinks([...links, newLink]);
+            const updatedLinks = [...links, newLink];
+            setLinks(updatedLinks);
+            // Update local storage
+            localStorage.setItem('links', JSON.stringify(updatedLinks));
             toast.success('Link added successfully');
         } catch (error) {
             console.error("Error adding link: ", error);
@@ -70,7 +80,10 @@ const App = () => {
         const username = sessionStorage.getItem('username');
         try {
             await axios.put(`https://bixcard-backend.onrender.com/links/${updatedLink.platform}?user=${username}`, updatedLink);
-            setLinks(links.map(link => (link.platform === updatedLink.platform ? updatedLink : link)));
+            const updatedLinks = links.map(link => (link.platform === updatedLink.platform ? updatedLink : link));
+            setLinks(updatedLinks);
+            // Update local storage
+            localStorage.setItem('links', JSON.stringify(updatedLinks));
             toast.success('Link updated successfully');
         } catch (error) {
             console.error("Error updating link: ", error);
