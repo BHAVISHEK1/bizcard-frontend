@@ -66,14 +66,14 @@ main {
   height: 40px;
 }
 
-.manage-button-container {
+.manage-button-container-ad {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-.manage-button {
+.manage-button-ad {
   padding: 10px 20px;
   background-color: #007bff;
   color: #ffffff;
@@ -87,7 +87,7 @@ main {
   background-color: #0056b3;
 }
 
-/* Responsive Design */
+
 @media (max-width: 400px) {
   .home {
     height: 40vh;

@@ -1,7 +1,8 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import AddLinkComponent from './components/AddLinkComponent';
 import ManageComponent from './components/ManageComponent';
@@ -42,6 +43,7 @@ const App = () => {
                 setLinks(linksArray);
             } catch (error) {
                 console.error("Error fetching links: ", error);
+                toast.error('Failed to fetch links');
             }
         };
 
@@ -52,18 +54,28 @@ const App = () => {
         try {
             await axios.post('https://bixcard-backend.onrender.com/links', newLink);
             setLinks([...links, newLink]);
+            toast.success('Link added successfully');
         } catch (error) {
             console.error("Error adding link: ", error);
+            toast.error('Failed to add link');
         }
     };
 
     const updateLink = async (updatedLink) => {
-        setLinks(links.map(link => (link.platform === updatedLink.platform ? updatedLink : link)));
+        try {
+            await axios.put(`https://bixcard-backend.onrender.com/links/${updatedLink.platform}`, updatedLink);
+            setLinks(links.map(link => (link.platform === updatedLink.platform ? updatedLink : link)));
+            toast.success('Link updated successfully');
+        } catch (error) {
+            console.error("Error updating link: ", error);
+            toast.error('Failed to update link');
+        }
     };
 
     return (
         <Router>
             <div className="App">
+
                 <main>
                     <Routes>
                         <Route
@@ -84,6 +96,17 @@ const App = () => {
                         />
                     </Routes>
                 </main>
+
+
+                <ToastContainer position="top-center"
+                    autoClose={1000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover />
             </div>
         </Router>
     );

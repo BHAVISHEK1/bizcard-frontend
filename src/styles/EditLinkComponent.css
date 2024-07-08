@@ -1,20 +1,30 @@
 /* EditLinkComponent.css */
 
 
-#label{
+#label {
     color: white;
-    
+
 }
 
-.linkss{
-      background-color: #0e1c76;
-      
+.linkss {
+    background-color: white;
+
 }
 
-#link{
+.linkss:hover {
+    background-color: #0e1c76;
     color: white;
+
+}
+
+#link {
+    color: rgb(0, 25, 244);
     border: 2px solid white;
     transform: translateX(1%);
+}
+
+#link:hover {
+    color: white;
 }
 
 .edit-link-container {
@@ -34,7 +44,7 @@
 }
 
 .icon-preview img {
-    max-width: 80px; /* Adjust as needed */
+    max-width: 80px;
     height: auto;
 }
 
@@ -48,7 +58,7 @@ form {
     flex-direction: column;
 }
 
-form > div {
+form>div {
     margin-bottom: 15px;
 }
 
@@ -70,8 +80,8 @@ button {
     margin: 3px;
     font-size: 1rem;
     border: none;
-    background-color:white ;
-    color:black;
+    background-color: white;
+    color: black;
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
@@ -86,15 +96,17 @@ button:hover {
 .button-container {
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 
-.icon-preview:hover{
-    
-        transform: scale(1.1);
-     
+.icon-preview:hover {
+
+    transform: scale(1.1);
+
 }
+
+
 
 
 

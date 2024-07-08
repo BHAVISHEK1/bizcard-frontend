@@ -13,16 +13,20 @@ const ManageComponent = ({ links, platformOptions }) => {
     return (
         <>
             <div className="home">
-                <div className="links-list">
-                    {links.map((link, index) => (
-                        <div key={index} className="link-item" onClick={() => handleEdit(link.platform)}>
-                            <img
-                                src={platformOptions.find(option => option.name.toLowerCase() === link.platform.toLowerCase()).icon}
-                                alt={link.platform}
-                            />
-                        </div>
-                    ))}
-                </div>
+                {links.length === 0 ? (
+                    <div className="empty-message">Nothing to show here</div>
+                ) : (
+                    <div className="links-list">
+                        {links.map((link, index) => (
+                            <div key={index} className="link-item" onClick={() => handleEdit(link.platform)}>
+                                <img
+                                    src={platformOptions.find(option => option.name.toLowerCase() === link.platform.toLowerCase()).icon}
+                                    alt={link.platform}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
             <div className="manage-button-container">
                 <Link to="/" className="manage-button"><i className="fa-solid fa-left-long"></i> Back to Home</Link>
